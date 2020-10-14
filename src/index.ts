@@ -2,8 +2,8 @@ import * as moduleAlias from 'module-alias';
 
 if (process.env.NODE_ENV == 'prod' || process.env.NODE_ENV == 'production') {
    moduleAlias.addAliases({
-      '@api':           __dirname + '/api',
       '@app':           __dirname,
+      '@api':           __dirname + '/api',
       '@config':        __dirname + '/config/index',
       '@middlewares':   __dirname + '/api/middlewares',
       '@models':        __dirname + '/models',
@@ -41,7 +41,7 @@ App.get('/', (req: Request, res: Response) => {
 App.listen(config.port, config.host, () => {
    console.log(
       `${'∙'.repeat(80)}\n`,
-      `🚀 ${config.service.name} @ http://${config.host}:${config.port}`, 
+      `🚀 ${config.service.name} - ${config.service.version}. Ready @ http://${config.host}:${config.port}`, 
       `\n${'∙'.repeat(80)}\n`
    );
 });

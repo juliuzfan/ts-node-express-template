@@ -1,4 +1,4 @@
-# TypeScript + NodeJS + NodeJS + Docker – Production Ready Setup Template
+# TypeScript + NodeJS + Express + Docker – Production Ready Setup Template
 
 This is a project template for NodeJS webservice RESTful API with typescript.
 

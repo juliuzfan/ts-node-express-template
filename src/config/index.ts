@@ -1,4 +1,3 @@
-import path from 'path';
 import * as dotenv from "dotenv";
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -16,10 +15,10 @@ if (envFound.error) {
 const config = Object.freeze({
    // Service Information
    service: {
-      name: 'My App Name',
-      version: 'v1',
+      name: process.env.APP_NAME || 'My App Name',
+      version: process.env.APP_VERSION || 'v1',
    },
-   // IP
+   // Service Host
    port: Number(process.env.APP_PORT || 3000),
    host: process.env.APP_HOST || '0.0.0.0',
    // Used by winston logger
@@ -28,14 +27,13 @@ const config = Object.freeze({
    },
    // API configs
    api: {
-      appService: { 
-         baseURL: process.env.APP_SERVICE_API_URL || 'http://127.0.0.1:4321',
-         // baseURL: 'http://127.0.0.1:4321',
+      serviceX: { 
+         baseURL: process.env.SERVICE_X_API_URL || 'http://127.0.0.1:8000',
       }
    },
    // MySQL Database Connection
    mysql: {
-      connectionLimit: Number(process.env.DB_CONN_LIMIT || 10),
+      connectionLimit: Number(process.env.MYSQL_DB_CONN_LIMIT || 10),
       connectTimeout: 60 * 60 * 1000,
       acquireTimeout: 60 * 60 * 1000,
       timeout: 60 * 60 * 1000,
@@ -44,18 +42,18 @@ const config = Object.freeze({
       password: process.env.MYSQL_DB_PASS || 'password',
       database: process.env.MYSQL_DB_NAME || 'dbname',
       port: Number(process.env.MYSQL_DB_PORT || 3306),
-      timezone: process.env.MYSQL_DB_TOMEZONE || 'utc'
+      timezone: process.env.MYSQL_DB_TIMEZONE || 'utc'
    },
    // REDIS Database Connection
    redis: {
       host: process.env.REDIS_DB_HOST || '127.0.0.1',
       port: process.env.REDIS_DB_PORT || 6379,
-      password: process.env.REDIS_DB_PASS || '',
+      password: process.env.REDIS_DB_PASS || undefined,
    },
-   // Cryptography
+   // Cryptography. Used by crypto.service.ts
    crypto: {
       algorithm: process.env.CRYPTO_ALGORITHM || 'aes-256-ctr',
-      secretKey: process.env.CRYPTO_SECRET || 'VLxzlGd1PQlbFE4ZipX5YxyuKY5NNYMut9FptcHr',
+      secretKey: process.env.CRYPTO_SECRET || 'my-secret-for-encryption',
    }
 });
 

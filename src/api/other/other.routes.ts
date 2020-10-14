@@ -1,17 +1,16 @@
-import express, {  Request, Response, NextFunction } from 'express';
+import express from 'express';
 import * as OtherController from './other.controller';
-import config from '@config';
 
 export const OtherRoutes = express.Router();
 
-// GET ping
-OtherRoutes.get('/ping', OtherController.ping);
+// GET /resource
+OtherRoutes.get('/resource', OtherController.resourceHandler);
 
-// POST authorization
-OtherRoutes.post('/authorization', OtherController.authorization)
+// POST /resource
+OtherRoutes.post('/resource', OtherController.resourceHandler)
 
-// GET callback
-OtherRoutes.get('/callback', OtherController.callback);
+// PUT /resource
+OtherRoutes.put('/resource', OtherController.resourceHandler);
 
-// GET authorized
-OtherRoutes.get('/authorized', OtherController.authorized);
+// DELETE resource
+OtherRoutes.delete('/resource', OtherController.resourceHandler);

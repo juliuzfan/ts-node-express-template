@@ -3,5 +3,7 @@ import * as CommonController from './common.controller';
 
 export const CommonRoutes = express.Router();
 
-// GET import log
+// ROUTES
+
+// GET /hello
 CommonRoutes.get('/hello', CommonController.hello);

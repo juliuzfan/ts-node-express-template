@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+   my-app-name:
+      build: .
+      ports:
+         - 3000:3000
+      expose:
+         - 3000
+      environment:
+         - NODE_ENV=prod
+      # depends_on:
+      #    - mysql
+      #    - redis

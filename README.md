@@ -53,6 +53,29 @@ GET http://localhost:3000/hello
 
 ![postman hello](https://i.imgur.com/QkP6NmK.png)
 
+
+## Docker
+
+This template project has a Dockerfile and `docker-compose.yml` almost ready for production.
+
+*Note that you'll need to have at least `Docker` version 19.03.8 and `docker-compose` version 1.25.5*
+
+To build and start yor service in a container do:
+
+```
+docker-compose up --build -d
+```
+
+To watch logs:
+
+```
+docker-compose logs -f
+```
+
+Or you could take advantage of VSCode npm scripts feature and run with a single click from your editor:
+
+![npm scripts](https://i.imgur.com/ExQCIGa.png)
+
 💡 Work in progress
 
 @TODO: More docs.

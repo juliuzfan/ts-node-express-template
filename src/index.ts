@@ -22,7 +22,7 @@ import { default as cors } from 'cors';
 const App: Application = express();
  
 // EXPRESS CONFIG
-App.use((req: Request, res: Response, next: NextFunction) => { res.setHeader('X-Powered-By', 'Ublux'); next(); });
+App.use((req: Request, res: Response, next: NextFunction) => { res.setHeader('X-Powered-By', config.service.name); next(); });
 // use cors middleware
 App.use(cors());
 // Uncomment to use template engine Eta (www.eta.js.org)

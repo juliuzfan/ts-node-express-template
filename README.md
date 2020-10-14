@@ -35,14 +35,23 @@ mv .dotenv .env
 npm run dev
 ```
 
+![nodemon running](https://i.imgur.com/31kfLKk.png)
+
 Navigate to http://localhost:3000.
 
-You should see your app running. 
+You should see your app running and a simple response in the browser with your service name defined in .env.
 
 Edit your project in `src/`, save it. Nodemon will catch file changes and respawn the app. 
 
 You can reload the page browser to see your changes. Or make some sample calls with Postman or Insomnia, etc.
 
+Fire Postman and make requests:
+
+```
+GET http://localhost:3000/hello
+```
+
+![postman hello](https://i.imgur.com/QkP6NmK.png)
 
 💡 Work in progress
 
